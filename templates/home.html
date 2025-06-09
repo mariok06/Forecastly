@@ -1,0 +1,22 @@
+{% extends 'base2.html' %}
+
+{% block title %}Forecastly{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <div class="home-card">
+        <h1 class="home-title">FORECASTLY</h1>
+        <h2 class="tagline"><b>your city, your weather</b></h2>
+        <hr>
+        <h3 class="home-subtitle">
+            REGISTER WITH US AND GET REAL-TIME FORECASTS.<br>
+            THAT WAY, YOU’RE ALWAYS READY, RAIN OR SHINE!
+        </h3>
+
+        <div class="overlay-bar3">
+           <button type="button" class="buttons"><a class="home-link" href="{{ url_for('register') }}">SIGN UP</a></button>
+           <button type="button" class="buttons"><a class="home-link" href="{{ url_for('login') }}">LOG IN</a></button>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base2.html' %}
+{% from "bootstrap5/form.html" import render_form %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container-fluid" id="login-form-text">
+    <h1 class="h1 mb-3 fw-normal" id="login-title">LOGIN</h1>
+    <h6><span id="login-info-text">haven't signed up yet? register <a id="register-link" href="{{ url_for('register') }}">here</a></span></h6>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+        <h6 class="flash" id="login-flash-msg">{{ message }}</h6>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="container-fluid" id="login-form">
+      <!--Rendering Log in form here-->
+      {{ render_form(form, novalidate=True, button_map={'submit': 'dark'}) }}
+    </div>
+
+</div>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer-two">
+        <span class="footer-two-text">&copy; 2024 Forecastly. All rights reserved.</span>
+    </footer>
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}Forecastly{% endblock %}
+
+{% block content %}
+<!--Current Weather Data-->
+<div class="horizontal-container-one">
+  <div class="box-one">
+      <span class="data-text">{{ weather_data['temp'] }} °C</span>
+      <h6 class="data-title">now</h6>
+      <span class="emoji">{{ weather_data['emoji'] }}</span>
+  </div>
+  <div class="box-one">
+      <span class="data-text">{{ weather_data['feels_like'] }} °C</span>
+      <h6 class="data-title">feels like</h6>
+      <img class="icons" src="static/icons/feels_like.gif" width="50" height="50">
+  </div>
+  <div class="box-one">
+      <span class="data-text">{{ weather_data['pressure'] }} <b>mbar</b></span>
+      <h6 class="data-title">pressure</h6>
+      <img class="icons" src="static/icons/pressure.png" width="45" height="45">
+  </div>
+  <div class="box-one">
+      <span class="data-text">{{ weather_data['humidity'] }} %</span>
+      <h6 class="data-title">humidity</h6>
+      <img class="icons" src="static/icons/humidity.png" width="45" height="45">
+  </div>
+</div>
+
+<!--Hourly Forecast-->
+<h6 class="horizontal-container-two-title">HOURLY FORECAST</h6>
+
+<div class="horizontal-container-two">
+    {% for row in forecast %}
+        <div class="box-two">
+            <span class="forecast-data">{{ row.temp }}°{{ row.icon }}</span>
+            <h6 class="probability">{{ row.probability }}%</h6>
+            <h6 class="description">{{ row.description }}</h6>
+            <h6 class="time">{{ row.time }}</h6>
+        </div>
+        {% if not loop.last %}
+        <div class="v-line"></div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<!--Charts-->
+<h6 class="charts-title">SIX-DAY FORECAST</h6>
+
+<div class="chart-wrapper">
+    <div class="left-column">
+        <!--First Chart-->
+        <div id="chart-one">
+          <div id="linechart"></div>
+        </div>
+
+        <!--Fifth Chart-->
+        <div class="chart-five">
+        <div class="box-five">
+            <b style="color: black;">{{ weather_data['speed'] }} m/s</b>
+            <h6 class="data-title" style="margin-top: 0.5rem; font-size: 1rem;">wind speed</h6>
+        </div>
+
+        <div class="box-five">
+             <b style="color: black;">{{ weather_data['visibility'] }} m</b>
+            <h6 class="data-title" style="margin-top: 0.5rem; font-size: 1rem;">visibility</h6>
+        </div>
+        </div>
+    </div>
+
+    <div class="right-column">
+        <div class="top-row">
+
+
+        <!--Second Chart-->
+        <div id="chart-two">
+            <div id="piechart"></div>
+        </div>
+
+        <!--Third Chart-->
+        <div id="chart-three">
+            <div class="box-three">
+                <img id="sunrise-icon" src="static/icons/sunrise.png" width="35" height="35">
+                <h6 class="data-title" style="margin-top: 2rem; font-size: 0.9rem;">sunrises at</h6>
+                <h6><b style="color: black; margin-left: 10px;">{{ weather_data['sunrise'] }}</b></h6>
+            </div>
+            <div class="box-three">
+                <img id="sunset-icon" src="static/icons/sunset.png" width="35" height="35">
+                <h6 class="data-title" style="margin-top: 2rem; font-size: 0.9rem;">sunsets at</h6>
+                <h6><b style="color: black; margin-left: 10px;">{{ weather_data['sunset'] }}</b></h6>
+            </div>
+        </div>
+        </div>
+
+        <!--Fourth Chart-->
+        <div id="chart-four">
+            <div id="scatterchart"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+
+    <script type='text/javascript'>
+        var linechart = {{ linechartJSON | safe }};
+        Plotly.newPlot('linechart', linechart);
+
+        var piechart = {{ piechartJSON | safe }};
+        Plotly.newPlot('piechart', piechart);
+
+        var scatterchart = {{ scatterchartJSON | safe }};
+        Plotly.newPlot('scatterchart', scatterchart);
+    </script>
+{% endblock %}
+

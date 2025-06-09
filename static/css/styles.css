@@ -1,0 +1,611 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.alert-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+}
+
+/* Base */
+.page-wrapper {
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+     background-image: url('../images/forecaster.jpg');
+     background-size: cover;
+     background-attachment: relative;
+     background-position: center;
+     background-repeat: no-repeat;
+}
+
+#sidebar {
+    display: flex;
+    position: absolute;
+    top: 8rem;
+    bottom: 2rem;
+    left: 1rem;
+    width: 5rem;
+    border-radius: 1rem;
+    background-color: black;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    overflow-y: auto;
+}
+
+.con1 {
+    position: relative;
+    height: auto;
+    object-fit: cover;
+    overflow: hidden;
+    margin: 0 auto;
+    flex: 1;
+    padding-bottom: 3rem;
+    z-index: 1;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#img1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.logo-text {
+    display: flex;
+    gap: 0;
+}
+
+.logo-text h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    font-family: "Anton SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #333446;
+}
+
+#city {
+    font-family: "Sacramento", cursive;
+    font-weight: 400;
+    font-style: italic;
+    color: #4300FF;
+    margin-top: 0.5rem;
+    margin-left: 0.1rem;
+}
+
+.overlay-bar1{
+    position: relative;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 30px;
+    align-items: left;
+    display: flex;
+    justify-content: left;
+    margin-left: 4.2rem;
+}
+
+.overlay-bar2{
+    position: absolute;
+    z-index: 10;
+    top: 30px;
+    left: 0;
+    right: 0;
+    padding: 0 30px;
+    align-items: right;
+    display: flex;
+    justify-content: end;
+}
+
+.overlay-bar2 button + button {
+    margin-left: 1rem;
+    padding: 7px 17px;
+}
+
+.buttons {
+    font-family: "Ubuntu", sans;
+    font-weight: 500;
+    font-style: normal;
+    background-color: #E8F9FF;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin-top: 0.5rem;
+    border: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#searchbar{
+    width: 20%;
+    background: rgba(100, 100, 100, 0.3);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 10px;
+}
+
+.footer {
+    padding: 0.7rem 0;
+    background-color: #222831;
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    z-index: 2;
+}
+
+.footer-text {
+    color: #EEEEEE;
+    padding-left: 35px;
+    font-size: 0.9rem;
+}
+
+/* Base Two */
+#base-two {
+     background-image: url('../images/homecaster.jpg');
+     justify-content: center;
+     align-items: center;
+}
+
+.footer-two {
+    padding: 0.7rem 0;
+    background-color: #393E46;
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    z-index: 2;
+}
+
+.footer-two-text {
+    color: #DDDDDD;
+    padding-left: 35px;
+    font-size: 0.9rem;
+}
+
+
+/* Home Page */
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.home-card {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    height: 90%;
+    max-width: 600px;
+    max-height: 350px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    background: rgba(100, 100, 100, 0.3);
+    backdrop-filter: blur(10px);
+    border: none;
+}
+
+.home-title {
+    font-family: "Anton SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    color: #E8F9FF;
+}
+
+.tagline {
+    font-family: "Sacramento", cursive;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 2.2rem;
+    color: #8DD8FF;
+}
+
+hr {
+    width: 70%;
+    margin: 1rem auto;
+    border: none;
+    border-top: 2px solid #E8F9FF;
+}
+
+.home-subtitle {
+    font-family: "Ubuntu", sans;
+    font-weight: 380;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: #F5F5F5;
+    margin-top: 2.5rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.overlay-bar3 {
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    bottom: 2.5rem;
+    left: 0;
+    right: 0;
+    padding: 0 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons {
+    font-family: "Ubuntu", sans;
+    font-weight: 500;
+    color: #E8F9FF;
+    font-style: normal;
+    background-color: black;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin-top: 0.5rem;
+    border: none;
+    margin-left: 1rem;
+    padding: 7px 17px;
+}
+
+.home-link {
+    color: white;
+}
+
+
+/* Forecast Page */
+
+/* Current Weather */
+.horizontal-container-one {
+    font-family: "Ubuntu", sans;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    width: 91.5%;
+    height: 90px;
+    gap: 20px;
+    margin-left: 6rem;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.box-one {
+    position: relative;
+    display: flex;
+    flex: 1;
+    background-color: white;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    justify-content: flex-start;
+    align-self: flex-start;
+    flex-direction: column;
+}
+
+.data-text {
+    margin-bottom: 5px;
+    margin-left: 5px;
+    font-size: 1.2rem;
+}
+
+.data-title {
+    margin-left: 5px;
+    color: #9AA6B2;
+}
+
+.emoji {
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: 20px;
+    position: absolute;
+    bottom: 25px;
+    right: 8px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.8rem;
+}
+
+.icons {
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: 25px;
+    position: absolute;
+    bottom: 25px;
+    right: 8px;
+    width: 50px;
+    height: 50px;
+}
+
+
+/* Hourly Forecast */
+.horizontal-container-two-title {
+    font-family: "Ubuntu", sans;
+    font-weight: 500;
+    font-style: normal;
+    color: #333446;
+    margin-left: 6.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.horizontal-container-two {
+    font-family: "Ubuntu", sans;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    width: 91.5%;
+    height: 130px;
+    margin-left: 6rem;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.box-two {
+    flex: 1;
+    background-color: none;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 0.2rem;
+    background: rgba(100, 100, 100, 0.5);
+    backdrop-filter: blur(10px);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.forecast-data {
+    margin-top: 0.3rem;
+    font-size: 1.1rem;
+}
+
+.probability {
+    margin-top: 0.4rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.7rem;
+}
+
+.description {
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.2rem;
+}
+
+.time {
+    font-size: 0.7rem;
+}
+
+.v-line {
+    width: 1px;
+    background: rgba(100, 100, 100, 1.0);
+    backdrop-filter: blur(10px);
+}
+
+
+/* Charts */
+.charts-title {
+    font-family: "Ubuntu", sans;
+    font-weight: 500;
+    font-style: normal;
+    color: #E8F9FF;
+    margin-left: 6.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.chart-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 1rem 0rem 0rem 6rem;
+    overflow-x: auto;
+}
+
+.left-column {
+    width: 330px;
+    flex-shrink: 0;
+    gap: 1rem;
+}
+
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.top-row {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+#chart-one, #chart-two, #chart-three, #chart-four {
+    background-color: white;
+    padding: 20px;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+#chart-two, #chart-three {
+    flex: 1;
+    height: 220px;
+    width: 200px;
+}
+
+#chart-one {
+    height: 440px;
+    width: 100%;
+}
+
+#chart-three {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+#chart-four {
+    height: auto;
+    bottom: 1rem;
+}
+
+.box-three {
+    font-family: "Ubuntu", sans;
+    font-weight: 400;
+    font-style: normal;
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#sunrise-icon, #sunset-icon {
+    margin-top: 0.3rem;
+    font-size: 1rem;
+}
+
+.chart-five {
+    display: flex;
+    margin-top: 1rem;
+    background-color: white;
+    padding: 20px;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    flex-direction: row;
+    gap: 1.5rem;
+    height: auto;
+    bottom: 1rem;
+}
+
+.box-five {
+    font-family: "Ubuntu", sans;
+    font-weight: 400;
+    font-style: normal;
+    flex: 1;
+    background-color: white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+/* Login and Register page */
+#login-form-text, #register-form-text {
+    align: center;
+    text-align: center;
+    font-family: "Ubuntu", sans;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+
+#login-form-text {
+    background-color: #BFCFE7;
+    color: #3D3B40;
+}
+
+#register-form-text {
+    background-color: #021526;
+    color: #EEEDEB;
+}
+
+#login-info-text, #register-info-text {
+    font-weight: 400;
+    border-radius: 2%;
+    padding: 5px 7px;
+    font-size: 0.9rem;
+    text-shadow: 0 0 1.5px #F1DEC6;
+}
+
+#login-info-text {
+    background-color: #6482AD;
+    color: #FEF3E2;
+}
+
+#register-info-text {
+    background-color: #6482AD;
+    color: #FEF3E2;
+}
+
+#login-title, #register-title {
+    font-family: "Anton SC", sans-serif;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 3.5rem;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+#login-title {
+    color: #021526;
+}
+
+#register-title {
+    color: #BFCFE7;
+}
+
+#login-flash-msg, #register-flash-msg {
+    color: #850F8D;
+    font-style: italic;
+    padding-top: 15px;
+}
+
+#login-flash-msg {
+    color: #850F8D;
+}
+
+#register-flash-msg {
+    color: #AD49E1;
+}
+
+#login-form, #register-form {
+    width: 20%;
+    padding-top: 40px;
+    padding-bottom: 47px;
+}
+
+#login-link, #register-link {
+    color: #FEF3E2;
+    text-decoration: underline 1px;
+}
+
+.btn-secondary, .btn-dark {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}

@@ -1,0 +1,31 @@
+{% extends 'base2.html' %}
+{% from "bootstrap5/form.html" import render_form %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container-fluid" id="register-form-text">
+    <h1 class="h1 mb-3 fw-normal" id="register-title">REGISTER</h1>
+    <h6><span id="register-info-text">already a user? login <a id="login-link" href="{{ url_for('login') }}">here</a></span></h6>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+        <h6 class="flash" id="register-flash-msg">{{ message }}</h6>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="container-fluid" id="register-form">
+      <!--Rendering Register in form here-->
+      {{ render_form(form, novalidate=True, button_map={'submit': 'secondary'}) }}
+    </div>
+
+</div>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer-two">
+        <span class="footer-two-text">&copy; 2024 Forecastly. All rights reserved.</span>
+    </footer>
+{% endblock %}
